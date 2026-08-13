@@ -16,16 +16,16 @@ const emit = defineEmits(['close', 'subscribe'])
             <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h2 class="text-center text-xl font-bold text-slate-900 dark:text-white">Congratulations!</h2>
+        <h2 class="text-center text-xl font-bold text-slate-900 dark:text-white">恭喜！</h2>
         <p class="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
-          You have successfully become a member! Dark mode is now unlocked for you.
+          您已成为会员！夜间模式现已为您解锁。
         </p>
         <button
           type="button"
           class="mt-6 w-full rounded-2xl bg-emerald-600 py-3 text-sm font-bold text-white transition hover:bg-emerald-500 active:scale-[0.98]"
           @click="emit('close')"
         >
-          Enjoy Dark Mode
+          享受夜间模式
         </button>
       </template>
 
@@ -48,18 +48,18 @@ const emit = defineEmits(['close', 'subscribe'])
           </button>
         </div>
 
-        <h2 class="text-xl font-bold text-slate-900 dark:text-white">Unlock Dark Mode</h2>
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white">解锁夜间模式</h2>
         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          Become a premium member and enjoy the full dark mode experience.
+          成为高级会员，享受完整的夜间模式体验。
         </p>
 
         <div class="mt-5 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 p-5 text-center text-white">
-          <p class="text-xs font-semibold uppercase tracking-wider text-indigo-100">Premium</p>
+          <p class="text-xs font-semibold uppercase tracking-wider text-indigo-100">高级版</p>
           <p class="mt-1">
             <span class="text-4xl font-extrabold">$99.99</span>
-            <span class="text-sm font-medium text-indigo-100">/month</span>
+            <span class="text-sm font-medium text-indigo-100">/月</span>
           </p>
-          <p class="mt-1 text-xs text-indigo-100">Cancel anytime (not really)</p>
+          <p class="mt-1 text-xs text-indigo-100">随时取消（并不是真的）</p>
         </div>
 
         <ul class="mt-4 space-y-2 text-sm text-slate-600 dark:text-slate-300">
@@ -67,19 +67,19 @@ const emit = defineEmits(['close', 'subscribe'])
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-emerald-500">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            Full dark mode
+            完整夜间模式
           </li>
           <li class="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-emerald-500">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            Eyeballs saved from glare
+            保护双眼，远离眩光
           </li>
           <li class="flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4 text-emerald-500">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
-            No real payment required
+            无需实际付款
           </li>
         </ul>
 
@@ -88,7 +88,7 @@ const emit = defineEmits(['close', 'subscribe'])
           class="mt-6 w-full rounded-2xl bg-indigo-600 py-3 text-sm font-bold text-white transition hover:bg-indigo-500 active:scale-[0.98]"
           @click="emit('subscribe')"
         >
-          Subscribe for {{ adult }}
+          以 {{ adult }} 订阅
         </button>
       </template>
     </div>

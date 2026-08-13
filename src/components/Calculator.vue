@@ -468,7 +468,7 @@ const tabs = [
 
     <SubscribeModal
       v-if="subscribeOpen"
-      adult="$99.99/month"
+      adult="$99.99/月"
       :success="subscribeSuccess"
       @close="closeSubscribe"
       @subscribe="completeSubscribe"
