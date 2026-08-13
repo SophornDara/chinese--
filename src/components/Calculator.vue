@@ -98,12 +98,19 @@ function insert(text, type = 'value') {
 
 function equals() {
   if (justEvaluated.value || !expression.value) return
+  if (!subscribed.value && calcUses.value >= FREE_RESULT_LIMIT) {
+    openSubscribe()
+    return
+  }
   const res = compute(expression.value, { math: activeMath.value })
   if (res.ok) {
     addHistory(prettify(res.normalized), res.formatted)
     expression.value = res.formatted
     justEvaluated.value = true
     errorVisible.value = false
+    if (!subscribed.value) {
+      calcUses.value += 1
+    }
   } else {
     errorVisible.value = true
     justEvaluated.value = false
@@ -281,8 +288,9 @@ const dark = ref(false)
 const subscribed = ref(false)
 const subscribeOpen = ref(false)
 const subscribeSuccess = ref(false)
-const savedSub = localStorage.getItem('calc-subscribed')
-if (savedSub === 'true') subscribed.value = true
+
+const FREE_RESULT_LIMIT = 3
+const calcUses = ref(0)
 
 function openSubscribe() {
   subscribeSuccess.value = false
@@ -321,10 +329,6 @@ if (savedTheme) {
 watch(dark, (value) => {
   localStorage.setItem('calc-theme', value ? 'dark' : 'light')
   applyTheme()
-})
-
-watch(subscribed, (value) => {
-  localStorage.setItem('calc-subscribed', value ? 'true' : 'false')
 })
 
 function onKeydown(event) {
@@ -384,7 +388,7 @@ const tabs = [
   <div class="relative flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-slate-100 via-slate-50 to-slate-200 font-sans text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-slate-100">
     <div class="mx-auto w-full max-w-3xl px-4 py-6">
       <header class="mb-6 flex flex-wrap items-center justify-between gap-3">
-        <h1 class="text-2xl font-bold tracking-tight">Scientific Calculator</h1>
+        <h1 class="text-2xl font-bold tracking-tight">計算器</h1>
         <div class="flex items-center gap-2">
           <button
             type="button"
